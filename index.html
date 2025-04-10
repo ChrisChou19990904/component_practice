@@ -34,7 +34,7 @@
 </head>
 <body>
 <h1 class="My_Story">The Story about Me and My Bestie</h1>
-<p>
+<p id="article">
   Six years ago, a blood-sucking undead creature as well as a mortal scientist headed for the Pingtung branch of Pacific SOGO Department Stores. When the blood-sucking undead creature and the mortal scientist reached the location of the department store, a mutated human also arrived there by bicycle. Then the blood-sucking undead creature, the mortal scientist, and the mutated human went into the department store for lunch. This is where the whole story began.
   <span id="dots">......</span><span id="more">
   <br>
@@ -53,44 +53,20 @@
   In conclusion, having undergone countless separations and filtrations, only Tony Stark has kept in touch with me until now. He has been my best friend for the past nineteen years. We had been classmates for four years before grade five. We have many common hobbies, and our personalities are very similar. We both love heroes from Marvel Universe and DC Universe, and we are also fond of Uncle Nine and his disciples from Hongkong horror films. Nonetheless, I haven’t seen Tony Stark in real life for one year though his residence is approximately two thousand seven hundred meters away from mine, and this is not that far. The last time I saw Tony Stark was the beginning of last year, and at that time we should have met outside Pingtung City Office but I didn’t see him there because we planned to attend the flag raising ceremony but he overslept. However, this didn’t cause any loss at all, because I succeeded in recording the talent show we had been looking forward to watching during the ceremony, and then uploaded it to our LINE Notepad. Therefore, we changed to meet at a brunch shop called “six inch plate” and then went back to the campus where Steve Rogers had been declared a formal member of Avengers six years ago. On the playground Tony Stark recorded me perform standing long jump, flying kick, and spinning back kick. Besides, I also tried to jump onto the reviewing stand alongside the playground by jumping and without using my hands to support my body, and I succeeded every time, which meant my legs’ explosive strength was very strong. However, the campus had changed a lot, because not only the runway for inline skating but also some typical amusement rides, like double spiral slide, seesaw, and plane-shaped climbing frame, were gone, and the color of the playground also turned blue from red and green. Now I don’t know when I will be able to see Tony Stark in real life again……
 </span>
 </p>
+<div id="google_translate_element"></div>
 
-<button onclick="translateText()">Translate</button>
-<label for="languageSelect">Choose a language to translate:</label>
-<select id="languageSelect">
-  <option value="es">Spanish</option>
-  <option value="fr">French</option>
-  <option value="de">German</option>
-  <option value="it">Italian</option>
-  <option value="zh-CN">Chinese</option>
-  <!-- Add more languages here if needed -->
-</select>
-
-<button onclick="translateText()">Translate</button>
-
-<script>
-  function translateText() {
-    // 先檢查是否能正確取得文章內容
-    var articleText = document.getElementById('article').innerText;
-    console.log("Original Text:", articleText); // 這會幫助我們調試，檢查是否正確抓取了文本
-
-    // 如果沒抓取到內容，則提示並中止
-    if (!articleText) {
-      alert('No article content found!');
-      return;
-    }
-
-    // 獲取用戶選擇的語言代碼
-    var targetLanguage = document.getElementById('languageSelect').value;
-    console.log("Selected Language:", targetLanguage); // 檢查選擇的語言
-
-    // 創建 Google 翻譯的 URL
-    var googleTranslateUrl = `https://translate.google.com/?sl=en&tl=${targetLanguage}&text=${encodeURIComponent(articleText)}&op=translate`;
-
-    // 打開新標籤頁，顯示翻譯結果
-    window.open(googleTranslateUrl, '_blank');
+<!-- Google Translate 的自動翻譯功能 -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',  // 頁面原語言
+      includedLanguages: 'en,es,fr,de,it,zh-CN,ja',  // 支援的翻譯語言（可擴展）
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
   }
 </script>
-<button onclick="toggleText()">Read more</button>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<button id="myBtn" onclick="toggleText()">Read more</button>
 <script>
   function toggleText() {
     var dots = document.getElementById("dots");
