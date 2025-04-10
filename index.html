@@ -30,6 +30,12 @@
     a:hover{
       color: gold;
     }
+    #google_translate_element {
+      position: fixed;
+      top: 10px;  /* 距離頁面頂端 10px */
+      left: 10px; /* 距離頁面左側 10px */
+      z-index: 9999; /* 保證它不會被其他元素遮蓋 */
+    }
   </style>
 </head>
 <body>
@@ -54,7 +60,6 @@
 </span>
 </p>
 <div id="google_translate_element"></div>
-
 <!-- Google Translate 的自動翻譯功能 -->
 <script type="text/javascript">
   function googleTranslateElementInit() {
